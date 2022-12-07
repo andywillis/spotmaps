@@ -1,0 +1,38 @@
+.spotmapList {
+  position: relative;
+  visibility: hidden;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3em;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.fadeInContainer {
+  animation: fadeIn ease 0.5s;
+}
+
+.fadeOutContainer {
+  animation: fadeOut ease 0.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}

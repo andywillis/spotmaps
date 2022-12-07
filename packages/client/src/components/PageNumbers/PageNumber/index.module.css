@@ -1,0 +1,30 @@
+@import "open-props/blue";
+@import "open-props/orange";
+
+.pageNumber {
+  user-select: none;
+  margin-right: 0.2em;
+  text-align: center;
+  padding: 0.25em 0.75em;
+  background-color: var(--blue-2);
+}
+
+@media (min-width: 1024px) {
+  .pageNumber {
+    padding: 0.5em 1em;
+  }
+}
+
+.pageNumber:not(.disabled):hover {
+  cursor: pointer;
+}
+
+.pageNumber:hover,
+.selected {
+  background-color: var(--blue-4);
+}
+
+.disabled {
+  user-select: none;
+  opacity: 0.4;
+}

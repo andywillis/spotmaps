@@ -1,0 +1,10 @@
+@import "open-props/gray";
+
+.spotmapContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0em;
+  border-radius: 10px;
+  background-color: var(--gray-3);
+  padding: 1em 0.75em;
+}

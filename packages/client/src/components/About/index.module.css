@@ -1,0 +1,58 @@
+@import "open-props/orange";
+
+.wrapper {
+  margin: 2em 1em;
+}
+
+.wrapper .group:not(:first-child) {
+  margin: 2em 0;
+}
+
+@media (min-width: 800px) {
+  .wrapper {
+    margin: 3em 1em;
+  }
+}
+
+
+.wrapper h2 {
+  font-size: 1.6em;
+  color: #403a55;
+  margin: 0 0 1em 0;
+}
+
+.wrapper p {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+.wrapper ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wrapper li {
+  user-select: none;
+  display: inline;
+  margin-right: 1em;
+  background-color: var(--orange-1);
+  border: 1px solid #efefef;
+  padding: 0.3em 0.4em;
+  border-radius: 10px;
+}
+
+.wrapper li a {
+  text-decoration: none;
+  color: black
+}
+
+.wrapper li:hover {
+  cursor: pointer;
+  border: 1px solid #565656;
+  color: var(--orange-9);
+}
+
+/* .wrapper li a:hover {
+  color: var(--orange-9);
+} */
