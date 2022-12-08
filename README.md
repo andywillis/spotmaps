@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Spotmaps with Preact.
+Spotmaps with Preact. 140K lighter than spotmaps-react with minimal fuss.
 
 ## Installation
 
