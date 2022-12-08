@@ -1,9 +1,9 @@
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
-import react from '@vitejs/plugin-react';
+import preact from '@preact/preset-vite';
 import compress from 'vite-plugin-compression';
 
 export default defineConfig({
-  plugins: [ react(), splitVendorChunkPlugin(), compress() ],
+  plugins: [ preact(), splitVendorChunkPlugin(), compress() ],
   root: 'src',
   server: {
     open: true,

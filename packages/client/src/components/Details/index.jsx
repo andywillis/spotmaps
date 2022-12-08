@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'preact/hooks';
 import classnames from 'classnames';
 import { useParams } from 'react-router-dom';
 
