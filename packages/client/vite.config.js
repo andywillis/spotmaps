@@ -4,6 +4,11 @@ import compress from 'vite-plugin-compression';
 
 export default defineConfig({
   plugins: [ preact(), splitVendorChunkPlugin(), compress() ],
+  resolve: {
+    alias: {
+      react: 'preact/compat'
+    }
+  },
   root: 'src',
   server: {
     open: true,
