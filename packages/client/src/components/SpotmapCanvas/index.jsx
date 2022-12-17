@@ -11,7 +11,6 @@ import styles from './index.module.css';
 function SpotmapCanvas(props) {
 
   const { numberOfSpots, hexData, mainWidth } = props;
-  console.log(props);
 
   const [ spotSize, setSpotSize ] = useState(8);
 

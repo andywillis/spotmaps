@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from 'preact/hooks';
 import { useSetRecoilState } from 'recoil';
 
 import Footer from './components/Footer';

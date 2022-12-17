@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'preact/hooks';
 import classNames from 'classnames';
 import { useParams } from 'react-router-dom';
 
