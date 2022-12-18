@@ -20,6 +20,8 @@ import styles from './App.module.css';
  */
 function App() {
 
+  console.log('Hi');
+
   const setLibrary = useSetRecoilState(libraryAtom);
   const setFilteredLibrary = useSetRecoilState(filteredLibraryAtom);
   const setNumberOfPages = useSetRecoilState(numberOfPagesAtom);
