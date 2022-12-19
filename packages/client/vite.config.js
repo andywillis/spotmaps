@@ -1,12 +1,10 @@
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import preact from '@preact/preset-vite';
 import compress from 'vite-plugin-compression';
-import Terminal from 'vite-plugin-terminal'
 
 export default defineConfig({
   plugins: [
     preact(),
-    Terminal({ console: 'terminal' }),
     splitVendorChunkPlugin(),
     compress()
   ],
