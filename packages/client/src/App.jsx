@@ -11,16 +11,12 @@ import {
   numberOfPagesAtom
 } from './store/atoms';
 
-import styles from './App.module.css';
-
 /**
  * App
  *
  * @return {object} JSX
  */
 function App() {
-
-  console.log('Hi');
 
   const setLibrary = useSetRecoilState(libraryAtom);
   const setFilteredLibrary = useSetRecoilState(filteredLibraryAtom);
@@ -38,11 +34,11 @@ function App() {
   }, [ setLibrary, setFilteredLibrary, setNumberOfPages ]);
 
   return (
-    <article className={styles.article}>
+    <>
       <Header />
       <Main />
       <Footer />
-    </article>
+    </>
   );
 }
 
