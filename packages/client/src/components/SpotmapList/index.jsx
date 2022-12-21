@@ -44,9 +44,9 @@ function SpotmapList() {
   const setNumberOfPages = useSetRecoilState(numberOfPagesAtom);
   const setPage = useSetRecoilState(pageAtom);
 
-  const spotmap = filteredData.slice((page - 1) * limit, (page * limit));
+  const spotmaps = filteredData.slice((page - 1) * limit, (page * limit));
 
-  const { state, contents } = useRecoilValueLoadable(spotmapsDataQuery(spotmap));
+  const { state, contents } = useRecoilValueLoadable(spotmapsDataQuery(spotmaps));
 
   useEffect(() => {
     const bound = mainRef.current.getBoundingClientRect();
@@ -58,7 +58,7 @@ function SpotmapList() {
     setPage(1);
   }, [ filteredData, setPage, setNumberOfPages ]);
 
-  const spotmapConteinerStyle = classNames({
+  const spotmapContainerStyle = classNames({
     [styles.spotmapList]: true,
     [styles.visible]: mainWidth > 0,
     [styles.fadeOutContainer]: state === 'loading' && mainWidth > 0,
@@ -68,7 +68,7 @@ function SpotmapList() {
   return (
     <>
       <PageNumbers />
-      <div ref={mainRef} class={spotmapConteinerStyle}>
+      <div ref={mainRef} class={spotmapContainerStyle}>
         {state === 'hasValue' && contents.length
           ? (
             contents.map(data => {
@@ -77,6 +77,7 @@ function SpotmapList() {
             })
           ) : <Spinner />}
       </div>
+      <PageNumbers />
     </>
   );
 

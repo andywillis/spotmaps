@@ -16,7 +16,7 @@ function Header() {
           <li>
             <NavLink
               to="/"
-              class={({ isActive }) => isActive ? style.active : undefined}
+              className={({ isActive }) => isActive ? style.active : undefined}
               end
             >Home
             </NavLink>
@@ -24,13 +24,13 @@ function Header() {
           <li>
             <NavLink
               to="/director"
-              class={({ isActive }) => isActive ? style.active : undefined}
+              className={({ isActive }) => isActive ? style.active : undefined}
             >Director
             </NavLink>
           </li>
           <li>
             <NavLink
-              class={({ isActive }) => isActive ? style.active : undefined}
+              className={({ isActive }) => isActive ? style.active : undefined}
               to="/genre"
             >Genre
             </NavLink>
@@ -38,28 +38,28 @@ function Header() {
           <li>
             <NavLink
               to="/title"
-              class={({ isActive }) => isActive ? style.active : undefined}
+              className={({ isActive }) => isActive ? style.active : undefined}
             >Title
             </NavLink>
           </li>
           <li>
             <NavLink
               to="/writer"
-              class={({ isActive }) => isActive ? style.active : undefined}
+              className={({ isActive }) => isActive ? style.active : undefined}
             >Writer
             </NavLink>
           </li>
           <li>
             <NavLink
               to="/year"
-              class={({ isActive }) => isActive ? style.active : undefined}
+              className={({ isActive }) => isActive ? style.active : undefined}
             >Year
             </NavLink>
           </li>
           <li>
             <NavLink
               to="/about"
-              class={({ isActive }) => isActive ? style.active : undefined}
+              className={({ isActive }) => isActive ? style.active : undefined}
             >About
             </NavLink>
           </li>
