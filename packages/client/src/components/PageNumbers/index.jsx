@@ -94,7 +94,7 @@ function PageNumbers() {
   }
 
   return (
-    <nav role="presentation" class={styles.pageNumbers} onClick={handleClick}>
+    <nav role="presentation" className={styles.pageNumbers} onClick={handleClick}>
       <Directional type="rwd" />
       <Directional type="previous" />
       {numberOfPages > 1

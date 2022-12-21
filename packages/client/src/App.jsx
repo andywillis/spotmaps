@@ -1,18 +1,15 @@
 import { useEffect } from 'preact/hooks';
-import { lazy, Suspense } from 'preact/compat';
 import { useSetRecoilState } from 'recoil';
 
 import Footer from './components/Footer';
+import Main from './components/Main';
 import Header from './components/Header';
-import Spinner from './components/Spinner';
 
 import {
   libraryAtom,
   filteredLibraryAtom,
   numberOfPagesAtom
 } from './store/atoms';
-
-const Main = lazy(() => import('./components/Main'));
 
 /**
  * App
@@ -39,10 +36,8 @@ function App() {
   return (
     <>
       <Header />
-      <Suspense fallback={<Spinner />}>
-        <Main />
-        <Footer />
-      </Suspense>
+      <Main />
+      <Footer />
     </>
   );
 }

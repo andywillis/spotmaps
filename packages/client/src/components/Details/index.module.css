@@ -3,6 +3,7 @@
 @import "open-props/yellow";
 
 .details {
+  user-select: none;
   background-color: var(--gray-8);
   color: white;
   font-size: 1em;
