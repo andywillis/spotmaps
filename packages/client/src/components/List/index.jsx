@@ -16,8 +16,8 @@ function formatItems(type, typeList) {
   return typeList.map((value) => {
     const link = `/${type}/${value}`;
     return (
-      <Link key={value} className={styles.wrapper} to={link}>
-        <div className={styles.link}>
+      <Link key={value} class={styles.wrapper} to={link}>
+        <div class={styles.link}>
           {value}
         </div>
       </Link>
@@ -36,7 +36,7 @@ function List({ type }) {
   const typeList = useRecoilValue(typeSelector(type));
 
   return (
-    <div className={styles.wrapper}>
+    <div class={styles.wrapper}>
       {formatItems(type, typeList)}
     </div>
   );

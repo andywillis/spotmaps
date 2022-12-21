@@ -68,7 +68,7 @@ function SpotmapList() {
   return (
     <>
       <PageNumbers />
-      <div ref={mainRef} className={spotmapConteinerStyle}>
+      <div ref={mainRef} class={spotmapConteinerStyle}>
         {state === 'hasValue' && contents.length
           ? (
             contents.map(data => {

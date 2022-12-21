@@ -10,13 +10,13 @@ import style from './index.module.css';
  */
 function Header() {
   return (
-    <header className={style.header}>
-      <nav className={style.submenu}>
+    <header class={style.header}>
+      <nav class={style.submenu}>
         <ul>
           <li>
             <NavLink
               to="/"
-              className={({ isActive }) => isActive ? style.active : undefined}
+              class={({ isActive }) => isActive ? style.active : undefined}
               end
             >Home
             </NavLink>
@@ -24,13 +24,13 @@ function Header() {
           <li>
             <NavLink
               to="/director"
-              className={({ isActive }) => isActive ? style.active : undefined}
+              class={({ isActive }) => isActive ? style.active : undefined}
             >Director
             </NavLink>
           </li>
           <li>
             <NavLink
-              className={({ isActive }) => isActive ? style.active : undefined}
+              class={({ isActive }) => isActive ? style.active : undefined}
               to="/genre"
             >Genre
             </NavLink>
@@ -38,28 +38,28 @@ function Header() {
           <li>
             <NavLink
               to="/title"
-              className={({ isActive }) => isActive ? style.active : undefined}
+              class={({ isActive }) => isActive ? style.active : undefined}
             >Title
             </NavLink>
           </li>
           <li>
             <NavLink
               to="/writer"
-              className={({ isActive }) => isActive ? style.active : undefined}
+              class={({ isActive }) => isActive ? style.active : undefined}
             >Writer
             </NavLink>
           </li>
           <li>
             <NavLink
               to="/year"
-              className={({ isActive }) => isActive ? style.active : undefined}
+              class={({ isActive }) => isActive ? style.active : undefined}
             >Year
             </NavLink>
           </li>
           <li>
             <NavLink
               to="/about"
-              className={({ isActive }) => isActive ? style.active : undefined}
+              class={({ isActive }) => isActive ? style.active : undefined}
             >About
             </NavLink>
           </li>

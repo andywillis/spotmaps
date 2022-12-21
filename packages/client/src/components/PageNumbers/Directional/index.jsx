@@ -52,7 +52,7 @@ function Directional({ type }) {
 
   return (
     <div
-      className={classes}
+      class={classes}
       type="directional"
       data-id={type}
       data-disabled={isDisabled(type, page, numberOfPages)}

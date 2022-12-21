@@ -46,16 +46,16 @@ function Details({ data }) {
   });
 
   return (
-    <div className={styles.details}>
+    <div class={styles.details}>
       <div>
-        <div className={styles.label}>No.</div>
-        <div className={styles.detail}>{id}</div>
+        <div class={styles.label}>No.</div>
+        <div class={styles.detail}>{id}</div>
       </div>
       <div>
-        <div className={styles.label}>Title</div>
-        <div className={styles.detail}>
+        <div class={styles.label}>Title</div>
+        <div class={styles.detail}>
           <span
-            className={classnames({
+            class={classnames({
               [styles.type]: true,
               [styles.highlight]: type === 'title' && value === title
             })}
@@ -64,8 +64,8 @@ function Details({ data }) {
         </div>
       </div>
       <div>
-        <div className={styles.label}>Director</div>
-        <div className={styles.detail}>
+        <div class={styles.label}>Director</div>
+        <div class={styles.detail}>
           {director.map(el => {
 
             const spanStyle = classnames({
@@ -76,7 +76,7 @@ function Details({ data }) {
             const [ last, first ] = el.split(',');
 
             return (
-              <span key={el} className={spanStyle}>
+              <span key={el} class={spanStyle}>
                 {first} {last}
               </span>
             );
@@ -85,8 +85,8 @@ function Details({ data }) {
         </div>
       </div>
       <div>
-        <div className={styles.label}>Writer</div>
-        <div className={styles.detail}>
+        <div class={styles.label}>Writer</div>
+        <div class={styles.detail}>
           {writer.map(el => {
 
             const spanStyle = classnames({
@@ -97,7 +97,7 @@ function Details({ data }) {
             const [ last, first ] = el.split(',');
 
             return (
-              <span key={el} className={spanStyle}>
+              <span key={el} class={spanStyle}>
                 {first} {last}
               </span>
             );
@@ -106,10 +106,10 @@ function Details({ data }) {
         </div>
       </div>
       <div>
-        <div className={styles.label}>Year</div>
-        <div className={styles.detail}>
+        <div class={styles.label}>Year</div>
+        <div class={styles.detail}>
           <span
-            className={classnames({
+            class={classnames({
               [styles.type]: true,
               [styles.highlight]: type === 'year' && +value === year
             })}
@@ -118,8 +118,8 @@ function Details({ data }) {
         </div>
       </div>
       <div>
-        <div className={styles.label}>Genre</div>
-        <div className={styles.detail}>
+        <div class={styles.label}>Genre</div>
+        <div class={styles.detail}>
           {genre.map(el => {
 
             const spanStyle = classnames({
@@ -128,7 +128,7 @@ function Details({ data }) {
             });
 
             return (
-              <span key={el} className={spanStyle}>
+              <span key={el} class={spanStyle}>
                 {el}
               </span>
             );
@@ -137,11 +137,11 @@ function Details({ data }) {
         </div>
       </div>
       <div>
-        <div className={styles.label}>Swatch</div>
-        <div className={styles.detail}>
-          <div className={styles.download}>
+        <div class={styles.label}>Swatch</div>
+        <div class={styles.detail}>
+          <div class={styles.download}>
             <button
-              className={downloadSwatchStyle}
+              class={downloadSwatchStyle}
               type="button"
               onClick={() => handleAseDownload(title)}
             >Download ASE file

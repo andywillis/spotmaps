@@ -59,7 +59,7 @@ function SpotmapCanvas(props) {
   }, [ numberOfSpots, hexData, spotSize ]);
 
   return (
-    <canvas className={styles.spotmap} ref={canvasRef} />
+    <canvas class={styles.spotmap} ref={canvasRef} />
   );
 }
 
