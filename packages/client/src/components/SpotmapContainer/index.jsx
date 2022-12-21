@@ -20,7 +20,7 @@ function SpotmapContainer(props) {
   const mainWidth = useRecoilValue(mainWidthAtom);
 
   return (
-    <section className={styles.spotmapContainer} style={{ width: mainWidth }}>
+    <section class={styles.spotmapContainer} style={{ width: mainWidth }}>
       <Details
         mainWidth={mainWidth}
         data={details}

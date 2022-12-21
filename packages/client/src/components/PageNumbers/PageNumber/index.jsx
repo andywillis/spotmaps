@@ -22,7 +22,7 @@ function PageNumber({ number, disabled }) {
   ]);
 
   return (
-    <div className={classes} data-id="number" data-number={number}>
+    <div class={classes} data-id="number" data-number={number}>
       {number}
     </div>
   );

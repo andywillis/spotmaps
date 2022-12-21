@@ -13,7 +13,7 @@ import styles from './index.module.css';
  */
 function Main() {
   return (
-    <main className={styles.main}>
+    <main class={styles.main}>
       <Routes>
         <Route path="/" element={<SpotmapList />} />
         <Route path="/:type/:value" element={<SpotmapList />} />
