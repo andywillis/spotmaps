@@ -8,8 +8,8 @@ import styles from './index.module.css';
  */
 function About() {
   return (
-    <div class={styles.wrapper}>
-      <article class={styles.group}>
+    <div className={styles.wrapper}>
+      <article className={styles.group}>
         <h2>Project</h2>
         <p>Spotmaps, based on Brendan Dawes&apos;&nbsp;<a href="http://brendandawes.com/projects/cinemaredux">Cinema Redux</a>, is an on-going project to map the colour narratives of different films.</p>
         <p>Films are processed through a Python/OpenCV pipeline: each frame&apos;s colour is sampled, and a spot of average colour is produced from the combination of one second&apos;s frames.</p>
@@ -17,7 +17,7 @@ function About() {
         <p>This is the second version of <a href="https://github.com/andywillis/spotmaps">Spotmaps</a> rewritten entirely with React.</p>
         <p>A 24-colour Adobe swatch file in ASE format and a hex RGB colour file are available to download for each spotmap.</p>
       </article>
-      <article class={styles.group}>
+      <article className={styles.group}>
         <h2>Coverage from the original version</h2>
         <ul>
           <li>

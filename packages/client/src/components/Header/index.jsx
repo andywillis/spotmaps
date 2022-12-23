@@ -10,8 +10,8 @@ import style from './index.module.css';
  */
 function Header() {
   return (
-    <header class={style.header}>
-      <nav class={style.submenu}>
+    <header className={style.header}>
+      <nav className={style.submenu}>
         <ul>
           <li>
             <NavLink

@@ -70,16 +70,16 @@ function Details({ data, containerRef }) {
   });
 
   return (
-    <div class={styles.details}>
+    <div className={styles.details}>
       <div>
-        <div class={styles.label}>No.</div>
-        <div class={styles.detail}>{id}</div>
+        <div className={styles.label}>No.</div>
+        <div className={styles.detail}>{id}</div>
       </div>
       <div>
-        <div class={styles.label}>Title</div>
-        <div class={styles.detail}>
+        <div className={styles.label}>Title</div>
+        <div className={styles.detail}>
           <span
-            class={classnames({
+            className={classnames({
               [styles.type]: true,
               [styles.highlight]: type === 'title' && value === title
             })}
@@ -88,8 +88,8 @@ function Details({ data, containerRef }) {
         </div>
       </div>
       <div>
-        <div class={styles.label}>Director</div>
-        <div class={styles.detail}>
+        <div className={styles.label}>Director</div>
+        <div className={styles.detail}>
           {director.map(el => {
 
             const spanStyle = classnames({
@@ -100,7 +100,7 @@ function Details({ data, containerRef }) {
             const [ last, first ] = el.split(',');
 
             return (
-              <span key={el} class={spanStyle}>
+              <span key={el} className={spanStyle}>
                 {first} {last}
               </span>
             );
@@ -109,8 +109,8 @@ function Details({ data, containerRef }) {
         </div>
       </div>
       <div>
-        <div class={styles.label}>Writer</div>
-        <div class={styles.detail}>
+        <div className={styles.label}>Writer</div>
+        <div className={styles.detail}>
           {writer.map(el => {
 
             const spanStyle = classnames({
@@ -121,7 +121,7 @@ function Details({ data, containerRef }) {
             const [ last, first ] = el.split(',');
 
             return (
-              <span key={el} class={spanStyle}>
+              <span key={el} className={spanStyle}>
                 {first} {last}
               </span>
             );
@@ -130,10 +130,10 @@ function Details({ data, containerRef }) {
         </div>
       </div>
       <div>
-        <div class={styles.label}>Year</div>
-        <div class={styles.detail}>
+        <div className={styles.label}>Year</div>
+        <div className={styles.detail}>
           <span
-            class={classnames({
+            className={classnames({
               [styles.type]: true,
               [styles.highlight]: type === 'year' && +value === year
             })}
@@ -142,8 +142,8 @@ function Details({ data, containerRef }) {
         </div>
       </div>
       <div>
-        <div class={styles.label}>Genre</div>
-        <div class={styles.detail}>
+        <div className={styles.label}>Genre</div>
+        <div className={styles.detail}>
           {genre.map(el => {
 
             const spanStyle = classnames({
@@ -152,7 +152,7 @@ function Details({ data, containerRef }) {
             });
 
             return (
-              <span key={el} class={spanStyle}>
+              <span key={el} className={spanStyle}>
                 {el}
               </span>
             );
@@ -161,17 +161,17 @@ function Details({ data, containerRef }) {
         </div>
       </div>
       <div>
-        <div class={styles.label}>Download</div>
-        <div class={styles.detail}>
-          <div class={styles.download}>
+        <div className={styles.label}>Download</div>
+        <div className={styles.detail}>
+          <div className={styles.download}>
             <button
-              class={downloadAseButtonStyle}
+              className={downloadAseButtonStyle}
               type="button"
               onClick={() => handleAseDownload(title)}
             >ASE file
             </button>
             <button
-              class={downloadPngButtonStyle}
+              className={downloadPngButtonStyle}
               type="button"
               onClick={() => handlePngDownload(title)}
             >PNG image

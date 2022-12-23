@@ -24,7 +24,7 @@ function SpotmapContainer(props) {
 
   return (
     <section
-      class={styles.spotmapContainer}
+      className={styles.spotmapContainer}
       style={{ width: mainWidth }}
       ref={containerRef}
     >
