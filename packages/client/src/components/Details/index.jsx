@@ -13,8 +13,7 @@ import styles from './index.module.css';
  */
 function Details({ data, containerRef }) {
 
-  const [ aseIsDownloading, setAseIsDownloading ] = useState(false);
-  const [ pngIsDownloading, setPngIsDownloading ] = useState(false);
+  const [ isDownloading, setIsDownloading ] = useState({});
 
   const { type, value } = useParams();
 
@@ -26,7 +25,7 @@ function Details({ data, containerRef }) {
    * @param {string} filename
    */
   async function handleAseDownload(title) {
-    setAseIsDownloading(true);
+    setIsDownloading(prev => ({ ...prev, ase: true }));
     try {
       const response = await fetch(`/ase/${title}`);
       if (!response.ok) throw Error('Bad API response');
@@ -36,7 +35,7 @@ function Details({ data, containerRef }) {
       anchor.setAttribute('download', `${title}.ase`);
       anchor.click();
       anchor.remove();
-      setAseIsDownloading(false);
+      setIsDownloading(prev => ({ ...prev, ase: false }));
     } catch (err) {
       console.log(err);
     }
@@ -47,26 +46,33 @@ function Details({ data, containerRef }) {
    *
    * @param {string} filename
    */
-  async function handlePngDownload(title) {
-    setPngIsDownloading(true);
+  async function handleImageDownload(title, asJpg) {
+    const type = asJpg ? 'jpg' : 'png';
+    const encoding = asJpg ? 'image/jpeg' : 'image/png';
+    setIsDownloading(prev => ({ ...prev, [type]: true }));
     const canvas = await html2canvas(containerRef.current);
-    const pngUrl = canvas.toDataURL();
+    const dataUrl = canvas.toDataURL(encoding);
     const anchor = document.createElement('a');
-    anchor.href = pngUrl;
-    anchor.setAttribute('download', `${title}.png`);
+    anchor.href = dataUrl;
+    anchor.setAttribute('download', `${title}.${type}`);
     anchor.click();
     anchor.remove();
-    setPngIsDownloading(false);
+    setIsDownloading(prev => ({ ...prev, [type]: false }));
   }
 
   const downloadAseButtonStyle = classnames({
     [styles.downloadButton]: true,
-    [styles.disabled]: aseIsDownloading && 'disabled'
+    [styles.disabled]: isDownloading.ase && 'disabled'
   });
 
   const downloadPngButtonStyle = classnames({
     [styles.downloadButton]: true,
-    [styles.disabled]: pngIsDownloading && 'disabled'
+    [styles.disabled]: isDownloading.png && 'disabled'
+  });
+
+  const downloadJpgButtonStyle = classnames({
+    [styles.downloadButton]: true,
+    [styles.disabled]: isDownloading.jpg && 'disabled'
   });
 
   return (
@@ -173,8 +179,14 @@ function Details({ data, containerRef }) {
             <button
               className={downloadPngButtonStyle}
               type="button"
-              onClick={() => handlePngDownload(title)}
+              onClick={() => handleImageDownload(title, false)}
             >PNG image
+            </button>
+            <button
+              className={downloadJpgButtonStyle}
+              type="button"
+              onClick={() => handleImageDownload(title, true)}
+            >JPG image
             </button>
           </div>
         </div>
