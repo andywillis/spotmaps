@@ -61,6 +61,7 @@ function SpotmapCanvas(props) {
   return (
     <canvas class={styles.spotmap} ref={canvasRef} />
   );
+
 }
 
 export default SpotmapCanvas;

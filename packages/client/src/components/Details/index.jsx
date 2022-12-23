@@ -1,5 +1,6 @@
 import { useState } from 'preact/hooks';
 import classnames from 'classnames';
+import html2canvas from 'html2canvas';
 import { useParams } from 'react-router-dom';
 
 import styles from './index.module.css';
@@ -10,9 +11,10 @@ import styles from './index.module.css';
  * @param {object} { data }
  * @return {object} JSX
  */
-function Details({ data }) {
+function Details({ data, containerRef }) {
 
-  const [ aseIsDownloading, setAseIsDownloading ] = useState();
+  const [ aseIsDownloading, setAseIsDownloading ] = useState(false);
+  const [ pngIsDownloading, setPngIsDownloading ] = useState(false);
 
   const { type, value } = useParams();
 
@@ -40,9 +42,31 @@ function Details({ data }) {
     }
   }
 
-  const downloadSwatchStyle = classnames({
-    [styles.downloadSwatch]: true,
+  /**
+   * handlePngDownload
+   *
+   * @param {string} filename
+   */
+  async function handlePngDownload(title) {
+    setPngIsDownloading(true);
+    const canvas = await html2canvas(containerRef.current);
+    const pngUrl = canvas.toDataURL();
+    const anchor = document.createElement('a');
+    anchor.href = pngUrl;
+    anchor.setAttribute('download', `${title}.png`);
+    anchor.click();
+    anchor.remove();
+    setPngIsDownloading(false);
+  }
+
+  const downloadAseButtonStyle = classnames({
+    [styles.downloadButton]: true,
     [styles.disabled]: aseIsDownloading && 'disabled'
+  });
+
+  const downloadPngButtonStyle = classnames({
+    [styles.downloadButton]: true,
+    [styles.disabled]: pngIsDownloading && 'disabled'
   });
 
   return (
@@ -137,14 +161,20 @@ function Details({ data }) {
         </div>
       </div>
       <div>
-        <div class={styles.label}>Swatch</div>
+        <div class={styles.label}>Download</div>
         <div class={styles.detail}>
           <div class={styles.download}>
             <button
-              class={downloadSwatchStyle}
+              class={downloadAseButtonStyle}
               type="button"
               onClick={() => handleAseDownload(title)}
-            >Download ASE file
+            >ASE file
+            </button>
+            <button
+              class={downloadPngButtonStyle}
+              type="button"
+              onClick={() => handlePngDownload(title)}
+            >PNG image
             </button>
           </div>
         </div>
