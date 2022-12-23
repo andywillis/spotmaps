@@ -12,10 +12,8 @@ Spotmaps with Preact. 140K lighter than spotmaps-react with minimal fuss.
 - Clone the repo
 - Rename the cloned repo
 - `cd` to the folder
-
-`pnpm install`
-
-`pnpm run dev`
+- `pnpm install`
+- `pnpm run dev`
 
 ## To do
 
