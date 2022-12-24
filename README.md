@@ -17,6 +17,10 @@ Spotmaps with Preact. 140K lighter than spotmaps-react with minimal fuss.
 
 ## To do
 
+- Histogram swatches
+- Thumbnails
+- Better ARIA
+
 ## Licence
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
