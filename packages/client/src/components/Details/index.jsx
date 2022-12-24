@@ -68,6 +68,9 @@ function Details({ data, canvasRef }) {
     dest.height = canvas.height + (fontSize * 4);
 
     const ctx = dest.getContext('2d');
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, dest.width, dest.height);
+
     ctx.drawImage(canvas, padding, fontSize * 2);
 
     ctx.font = `bold ${fontSize}px Calibri, sans-serif`;
