@@ -4,7 +4,7 @@
 
 Spotmaps with Preact. 140K lighter than spotmaps-react with minimal fuss.
 
-![The Black Hole, 1979](docs/Black%20Hole%2C%20The.png)
+![The Black Hole, 1979](docs/Black%20Hole%2C%20The.jpg)
 
 ## Installation
 
