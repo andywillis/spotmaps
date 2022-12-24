@@ -63,11 +63,11 @@ function Details({ data, canvasRef }) {
     const canvas = canvasRef.current;
     const dest = document.createElement('canvas');
 
-    dest.width = canvas.width;
+    dest.width = canvas.width + 20;
     dest.height = canvas.height + (fontSize * 4);
 
     const ctx = dest.getContext('2d');
-    ctx.drawImage(canvas, 0, fontSize * 2);
+    ctx.drawImage(canvas, 10, fontSize * 2);
 
     ctx.font = `bold ${fontSize}px Calibri, sans-serif`;
     ctx.fillStyle = 'rgba(255, 255, 220, 0.4)';
@@ -76,8 +76,8 @@ function Details({ data, canvasRef }) {
     const copy = `© Andy Willis ${new Date().getFullYear()}`;
     const measureCopy = ctx.measureText(copy);
 
-    ctx.fillText(text, 0, fontSize + (fontSize / 2));
-    ctx.fillText(copy, dest.width - measureCopy.width, dest.height - fontSize);
+    ctx.fillText(text, 10, fontSize + (fontSize / 2));
+    ctx.fillText(copy, dest.width - measureCopy.width - 10, dest.height - fontSize);
 
     const dataUrl = dest.toDataURL(encoding);
     const anchor = document.createElement('a');
