@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "classnames": "^2.3.2",
-    "html2canvas": "^1.4.1",
     "open-props": "^1.5.3",
     "preact": "^10.11.3",
     "react-router-dom": "6.5.0",

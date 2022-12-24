@@ -1,6 +1,5 @@
 import { useState } from 'preact/hooks';
 import classnames from 'classnames';
-import html2canvas from 'html2canvas';
 import { useParams } from 'react-router-dom';
 
 import styles from './index.module.css';
@@ -11,13 +10,21 @@ import styles from './index.module.css';
  * @param {object} { data }
  * @return {object} JSX
  */
-function Details({ data, containerRef }) {
+function Details({ data, canvasRef }) {
 
   const [ isDownloading, setIsDownloading ] = useState({});
 
   const { type, value } = useParams();
 
-  const { id, title, director, writer, year, genre } = data;
+  const {
+    id,
+    title,
+    director,
+    writer,
+    year,
+    genre,
+    fullTitle
+  } = data;
 
   /**
    * handleAseDownload
@@ -50,8 +57,29 @@ function Details({ data, containerRef }) {
     const type = asJpg ? 'jpg' : 'png';
     const encoding = asJpg ? 'image/jpeg' : 'image/png';
     setIsDownloading(prev => ({ ...prev, [type]: true }));
-    const canvas = await html2canvas(containerRef.current);
-    const dataUrl = canvas.toDataURL(encoding);
+
+    const fontSize = 24;
+
+    const canvas = canvasRef.current;
+    const dest = document.createElement('canvas');
+
+    dest.width = canvas.width;
+    dest.height = canvas.height + (fontSize * 4);
+
+    const ctx = dest.getContext('2d');
+    ctx.drawImage(canvas, 0, fontSize * 2);
+
+    ctx.font = `bold ${fontSize}px Calibri, sans-serif`;
+    ctx.fillStyle = 'rgba(255, 255, 220, 0.4)';
+
+    const text = `${fullTitle}, ${year}`;
+    const copy = `© Andy Willis ${new Date().getFullYear()}`;
+    const measureCopy = ctx.measureText(copy);
+
+    ctx.fillText(text, 0, fontSize + (fontSize / 2));
+    ctx.fillText(copy, dest.width - measureCopy.width, dest.height - fontSize);
+
+    const dataUrl = dest.toDataURL(encoding);
     const anchor = document.createElement('a');
     anchor.href = dataUrl;
     anchor.setAttribute('download', `${title}.${type}`);
