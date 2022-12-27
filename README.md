@@ -2,9 +2,31 @@
 
 ## Introduction
 
-Spotmaps with Preact. 140K lighter than spotmaps-react with minimal fuss.
+Spotmaps, based on Brendan Dawes' [Cinema Redux](http://brendandawes.com/projects/cinemaredux), is an on-going project to map the colour narratives of different films.
+
+Films are processed through a Python/OpenCV pipeline: each frame's colour is sampled, and a spot of average colour is produced from the combination of one second's frames.
+
+Spots are laid out 60 per line to represent one minute of film time. The length of the image represents the number of minutes in the film.
+
+This is the second version of the project rewritten entirely with Preact.
+
+Coverage from the original version:
+
+- [The Verge](https://www.theverge.com/2013/1/15/3878234/andy-willis-spotmaps-turns-movies-into-color-maps)
+- [Fast Company](https://www.fastcompany.com/90185487/infographic-the-colors-from-your-favorite-movies-mapped-to-7200-pixels)
+- [Gizmodo](http://gizmodo.com/5972740/the-color-of-movies-visualized)
+
+### Sample output of Disney's "The Black Hole" from 1979
 
 ![The Black Hole, 1979](docs/Black%20Hole%2C%20The.png)
+
+## Tools
+
+- Preact
+- Open-props
+- Recoil
+- React Router
+- Vite
 
 ## Installation
 
@@ -20,6 +42,10 @@ Spotmaps with Preact. 140K lighter than spotmaps-react with minimal fuss.
 - Histogram swatches
 - Thumbnails
 - Better ARIA
+- Grouped lists
+- Download toast notifications
+- Improved pipeline
+- Full data download so as not to rely on API requests
 
 ## Licence
 
