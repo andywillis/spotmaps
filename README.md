@@ -37,16 +37,6 @@ Coverage from the original version:
 - `pnpm install`
 - `pnpm run dev`
 
-## To do
-
-- Histogram swatches
-- Thumbnails
-- Better ARIA
-- Grouped lists
-- Download toast notifications
-- Improved pipeline
-- Full data download so as not to rely on API requests
-
 ## Licence
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
