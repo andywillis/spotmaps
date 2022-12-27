@@ -16,7 +16,7 @@ async function ase(library) {
     const { id } = req.params;
 
     const spotmap = library.find(spotmap => {
-      return spotmap.id === id;
+      return spotmap.id === Number(id);
     });
 
     const filePath = path.join(`${rootname}`, 'data/ase/', `${spotmap.title}.ase`);    

@@ -4,8 +4,9 @@ import compiledLibrary from '../../../data/library/compiledLibrary' assert { typ
 
 import rootname from '../../../rootname';
 
-const strippedCompiledLibrary = compiledLibrary.map(({ id, hexData }) => {
-  return { id, hexData };
+const strippedCompiledLibrary = compiledLibrary.map(obj => {
+  const { id, title, hexData } = obj;
+  return { id, title, hexData };
 });
 
 const filePath = `${rootname}/data/library/strippedCompiledLibrary.json`;
