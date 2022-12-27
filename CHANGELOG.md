@@ -9,7 +9,6 @@
 ### Client
 
 - Fix route to hex data (id not title) in the `Details` component.
-- Add swatches to the titles page.
 
 ### Server
 
