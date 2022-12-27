@@ -4,6 +4,8 @@
   "words": [
     "Brotli",
     "clientdev",
+    "cmap",
+    "deduped",
     "Epicor",
     "flaticon",
     "Flexbox",
@@ -12,6 +14,7 @@
     "Icongeek",
     "keyframes",
     "Nanoid",
+    "Pathcompiled",
     "postbuild",
     "preact",
     "rootname",

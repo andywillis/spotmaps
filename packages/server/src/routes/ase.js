@@ -13,14 +13,13 @@ async function ase(library) {
 
   return async function (req, res) {
     
-    const { title } = req.params;
+    const { id } = req.params;
 
     const spotmap = library.find(spotmap => {
-      return spotmap.title === title;
+      return spotmap.id === Number(id);
     });
 
-    const filePath = path.join(`${rootname}`, 'data/ase/', `${spotmap.title}.ase`);
-    
+    const filePath = path.join(`${rootname}`, 'data/ase/', `${spotmap.title}.ase`);    
     res.status(200).download(filePath, `${spotmap.title}.ase`);
   
   };

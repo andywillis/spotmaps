@@ -34,7 +34,7 @@ function Details({ data, canvasRef }) {
   async function handleAseDownload(title) {
     setIsDownloading(prev => ({ ...prev, ase: true }));
     try {
-      const response = await fetch(`/ase/${title}`);
+      const response = await fetch(`/ase/${id}`);
       if (!response.ok) throw Error('Bad API response');
       const blob = await response.blob();
       const anchor = document.createElement('a');

@@ -25,7 +25,9 @@ export const typeSelector = selectorFamily({
   key: 'typeSelector',
   get: type => ({ get }) => {
     const library = get(libraryAtom);
-    const typeList = [ ...new Set(library.flatMap(obj => obj[type])) ].sort();
-    return typeList;
+    const typeList = library.flatMap(obj => obj[type]);
+    const dedupedList = [ ...new Set(typeList) ];
+    dedupedList.sort();
+    return dedupedList;
   }
 });

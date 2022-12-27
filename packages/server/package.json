@@ -1,11 +1,13 @@
 {
   "name": "server",
-  "version": "0.0.1",
+  "version": "2.1.0",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
     "lint": "eslint",
-    "compileLibrary": "node --experimental-specifier-resolution=node --experimental-json-modules src/tools/createCompiledLibrary",
+    "rgbToHex": "node --experimental-specifier-resolution=node --experimental-json-modules src/tools/createRgbFromHex/index.js",
+    "compiledLibrary": "node --experimental-specifier-resolution=node --experimental-json-modules src/tools/createCompiledLibrary/index.js",
+    "strippedLibrary": "node --experimental-specifier-resolution=node --experimental-json-modules src/tools/createStrippedCompiledLibrary/index.js",
     "dev": "nodemon --experimental-specifier-resolution=node --experimental-json-modules src/index",
     "prod": "node --experimental-specifier-resolution=node --experimental-json-modules src/index"
   },
@@ -21,7 +23,8 @@
   },
   "devDependencies": {
     "babel-plugin-import": "^1.13.5",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "quantize": "^1.0.2"
   },
   "license": "CC-BY-NC-SA-4.0"
 }
