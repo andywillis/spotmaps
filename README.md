@@ -1,4 +1,4 @@
-# spotmaps-preact
+# Spotmaps (2022)
 
 ## Introduction
 
@@ -8,9 +8,9 @@ Films are processed through a Python/OpenCV pipeline: each frame's colour is sam
 
 Spots are laid out 60 per line to represent one minute of film time. The length of the image represents the number of minutes in the film.
 
-This is the second version of the project rewritten entirely with Preact.
+This is revised version of [the original project](https://github.com/andywillis/spotmaps-2012) rewritten with Preact.
 
-Coverage from the original version:
+Coverage of the original project:
 
 - [The Verge](https://www.theverge.com/2013/1/15/3878234/andy-willis-spotmaps-turns-movies-into-color-maps)
 - [Fast Company](https://www.fastcompany.com/90185487/infographic-the-colors-from-your-favorite-movies-mapped-to-7200-pixels)
@@ -20,7 +20,7 @@ Coverage from the original version:
 
 ![The Black Hole, 1979](docs/Black%20Hole%2C%20The.png)
 
-## Tools
+## Main tools
 
 - Preact
 - Open-props
@@ -28,7 +28,11 @@ Coverage from the original version:
 - React Router
 - Vite
 
-## Installation
+## Visit
+
+[https://spotmaps.onrender.com/](https://spotmaps.onrender.com/).
+
+## Local development installation
 
 - [Install pnpm](https://pnpm.io/installation)
 - Clone the repo
