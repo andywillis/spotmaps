@@ -6,15 +6,19 @@
     "clientdev",
     "cmap",
     "deduped",
+    "deepcode",
     "Epicor",
     "flaticon",
     "Flexbox",
     "Formik",
     "fullscreen",
+    "Gizmodo",
     "Icongeek",
     "keyframes",
+    "Logr",
     "Nanoid",
     "Pathcompiled",
+    "plusplus",
     "postbuild",
     "preact",
     "rootname",
@@ -24,6 +28,8 @@
     "spotmap",
     "spotmaps",
     "Stackoverflow",
-    "Vitaly"
+    "Vitaly",
+    "xpos",
+    "ypos"
   ]
 }

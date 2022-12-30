@@ -35,6 +35,8 @@ function List({ type }) {
 
   const typeList = useRecoilValue(typeSelector(type));
 
+  console.log(typeList);
+
   return (
     <div className={styles.wrapper}>
       {formatItems(type, typeList)}

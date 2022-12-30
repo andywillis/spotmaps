@@ -1,19 +1,10 @@
 {
   "extends": [
-    "airbnb",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended"
+    "../../.eslintrc"
   ],
-  "parserOptions": {
-    "ecmaVersion": "latest"
-  },
   "globals": {
     "React": true
   },
-  "plugins": [
-    "jsx-a11y",
-    "react-hooks"
-  ],
   "env": {
     "browser": true
   },
@@ -26,12 +17,6 @@
         "additionalHooks": "(useRecoilCallback|useRecoilTransaction_UNSTABLE)"
       }
     ],
-    "import/extensions": [0, {
-      "css": "never",
-      "js": "never",
-      "jsx": "never",
-      "json": "never"
-    }],
     "react/jsx-props-no-spreading": 0,
     "import/no-extraneous-dependencies": 0,
     "no-underscore-dangle": 0,
