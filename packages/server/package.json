@@ -22,7 +22,6 @@
     "rgb2ase": "^0.0.4"
   },
   "devDependencies": {
-    "babel-plugin-import": "^1.13.5",
     "nodemon": "^2.0.19",
     "quantize": "^1.0.2"
   },

@@ -7,6 +7,7 @@ import compression from 'compression';
 
 import rootname from '../../rootname';
 
+// file deepcode ignore UseCsurfForExpress: <please specify a reason of ignoring this>
 const app = express();
 
 const buildPath = path.join(rootname, '../client/build');
@@ -19,6 +20,7 @@ app.use(compression());
 
 const port = process.env.PORT || 4000;
 
+// file deepcode ignore HttpToHttps: <please specify a reason of ignoring this>
 const server = http.createServer(app);
 
 export { app, port, server };
