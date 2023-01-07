@@ -1,9 +1,9 @@
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+// import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import PageNumber from './PageNumber';
 import Directional from './Directional';
 
-import { pageAtom, numberOfPagesAtom } from '../../store/atoms';
+import { page, numberOfPages } from '../../signals/signals';
 
 import styles from './index.module.css';
 
@@ -50,10 +50,6 @@ function buildPageList({ page, numberOfPages }) {
  */
 function PageNumbers() {
 
-  const page = useRecoilValue(pageAtom);
-  const setPage = useSetRecoilState(pageAtom);
-  const numberOfPages = useRecoilValue(numberOfPagesAtom);
-
   /**
    * handleClick
    *
@@ -68,23 +64,23 @@ function PageNumbers() {
     if (id) {
       switch (id) {
         case 'number': {
-          setPage(parseInt(number, 10));
+          page.value = parseInt(number, 10);
           break;
         }
         case 'rwd': {
-          if (!isDisabled) setPage(1);
+          if (!isDisabled) page.value = 1;
           break;
         }
         case 'previous': {
-          if (!isDisabled) setPage(page - 1);
+          if (!isDisabled) page.value = page - 1;
           break;
         }
         case 'next': {
-          if (!isDisabled) setPage(page + 1);
+          if (!isDisabled) page.value = page + 1;
           break;
         }
         case 'ffd': {
-          if (!isDisabled) setPage(numberOfPages);
+          if (!isDisabled) page.value = numberOfPages;
           break;
         }
         default: break;
@@ -98,7 +94,7 @@ function PageNumbers() {
       <Directional type="rwd" />
       <Directional type="previous" />
       {numberOfPages > 1
-        ? buildPageList({ page, numberOfPages })
+        ? buildPageList({ page: page.value, numberOfPages: numberOfPages.value })
         : <PageNumber page="1" number="1" disabled />}
       <Directional type="next" />
       <Directional type="ffd" />

@@ -1,26 +1,32 @@
-import { useEffect, useRef } from 'preact/hooks';
+import { batch, effect, useSignal } from '@preact/signals';
+import { useRef, useEffect } from 'preact/hooks';
 import classNames from 'classnames';
 import { useParams } from 'react-router-dom';
 
-import {
-  useRecoilValue,
-  useRecoilState,
-  useRecoilValueLoadable,
-  useSetRecoilState
-} from 'recoil';
+// import {
+//   useRecoilValue,
+//   useRecoilState,
+//   useRecoilValueLoadable,
+//   useSetRecoilState
+// } from 'recoil';
 
 import Spinner from '../Spinner';
 import SpotmapContainer from '../SpotmapContainer';
 import PageNumbers from '../PageNumbers';
 
+import api from '../../signals/api';
+
 import useWindowResize from '../../hooks/useWindowResize';
 
 import {
-  mainWidthAtom, numberOfPagesAtom, limitAtom, pageAtom
-} from '../../store/atoms';
+  mainWidth,
+  page,
+  pageValue,
+  pageType
+} from '../../signals/signals';
 
-import { spotmapsSelector } from '../../store/selectors';
-import { spotmapsDataQuery } from '../../store/queries';
+import { spotmapsSelector } from '../../signals/selectors';
+// import { spotmapsDataQuery } from '../../store/queries';
 
 import styles from './index.module.css';
 
@@ -31,45 +37,53 @@ import styles from './index.module.css';
  */
 function SpotmapList() {
 
+  const spotmapsData = useSignal([]);
+
   const windowSize = useWindowResize();
   const mainRef = useRef(null);
+
   const { type, value } = useParams();
 
-  const [ mainWidth, setMainWidth ] = useRecoilState(mainWidthAtom);
-  const [ page, setPage ] = useRecoilState(pageAtom);
+  effect(() => {
+    batch(() => {
+      pageType.value = type;
+      pageValue.value = value;
+      page.value = 1;
+    });
+  });
 
-  const limit = useRecoilValue(limitAtom);
+  effect(() => {
+    async function getSpotmaps() {
+      if (spotmapsSelector.value.length) {
+        const data = await api.getSpotmaps(spotmapsSelector.value);
+        console.log(data, spotmapsSelector.value);
+        spotmapsData.value = data;
+      }
+    }
+    getSpotmaps();
+  });
 
-  const filteredData = useRecoilValue(spotmapsSelector({ type, value }));
-  const setNumberOfPages = useSetRecoilState(numberOfPagesAtom);
-  const spotmaps = filteredData.slice((page - 1) * limit, (page * limit));
-
-  const { state, contents } = useRecoilValueLoadable(spotmapsDataQuery(spotmaps));
+  // const { state, contents } = useRecoilValueLoadable(spotmapsDataQuery(spotmaps));
 
   useEffect(() => {
     const bound = mainRef.current.getBoundingClientRect();
-    setMainWidth(Math.floor(bound.width));
-  }, [ windowSize.width, setMainWidth ]);
-
-  useEffect(() => {
-    setNumberOfPages(filteredData.length);
-    setPage(1);
-  }, [ filteredData, setPage, setNumberOfPages ]);
+    mainWidth.value = Math.floor(bound.width);
+  }, [ windowSize.width ]);
 
   const spotmapContainerStyle = classNames({
     [styles.spotmapList]: true,
-    [styles.visible]: mainWidth > 0,
-    [styles.fadeOutContainer]: state === 'loading' && mainWidth > 0,
-    [styles.fadeInContainer]: state === 'hasValue' && mainWidth > 0
+    [styles.visible]: true
+    // [styles.fadeOutContainer]: state === 'loading' && mainWidth > 0,
+    // [styles.fadeInContainer]: state === 'hasValue' && mainWidth > 0
   });
 
   return (
     <>
       <PageNumbers />
       <div ref={mainRef} className={spotmapContainerStyle}>
-        {state === 'hasValue' && contents.length
+        {spotmapsData.value.length
           ? (
-            contents.map(data => {
+            spotmapsData.value.map(data => {
               return (
                 <SpotmapContainer
                   key={data.id}

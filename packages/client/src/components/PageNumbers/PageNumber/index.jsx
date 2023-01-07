@@ -1,7 +1,7 @@
-import { useRecoilValue } from 'recoil';
+// import { useRecoilValue } from 'recoil';
 import classnames from 'classnames';
 
-import { pageAtom } from '../../../store/atoms';
+import { page } from '../../../signals/signals';
 
 import styles from './index.module.css';
 
@@ -13,11 +13,9 @@ import styles from './index.module.css';
  */
 function PageNumber({ number, disabled }) {
 
-  const page = useRecoilValue(pageAtom);
-
   const classes = classnames([
     styles.pageNumber,
-    page === number && styles.selected,
+    page.value === number && styles.selected,
     disabled && styles.disabled
   ]);
 

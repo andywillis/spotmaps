@@ -1,7 +1,9 @@
-import { useRecoilValue } from 'recoil';
+import { effect } from '@preact/signals';
+// import { useRecoilValue } from 'recoil';
 import { Link } from 'react-router-dom';
 
-import { typeSelector } from '../../store/selectors';
+import { pageType } from '../../signals/signals';
+import { typeSelector } from '../../signals/selectors';
 
 import styles from './index.module.css';
 
@@ -12,8 +14,8 @@ import styles from './index.module.css';
  * @param {array} typeList
  * @return {object} JSX
  */
-function formatItems(type, typeList) {
-  return typeList.map((value) => {
+function formatItems(type, typeSelector) {
+  return typeSelector.map((value) => {
     const link = `/${type}/${value}`;
     return (
       <Link key={value} className={styles.wrapper} to={link}>
@@ -33,13 +35,13 @@ function formatItems(type, typeList) {
  */
 function List({ type }) {
 
-  const typeList = useRecoilValue(typeSelector(type));
-
-  console.log(typeList);
+  effect(() => {
+    pageType.value = type;
+  });
 
   return (
     <div className={styles.wrapper}>
-      {formatItems(type, typeList)}
+      {formatItems(type, typeSelector.value)}
     </div>
   );
 
