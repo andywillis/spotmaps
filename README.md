@@ -4,7 +4,7 @@
 
 Spotmaps, based on Brendan Dawes' [Cinema Redux](http://brendandawes.com/projects/cinemaredux), is an on-going project to map the colour narratives of different films.
 
-Films are processed through a Python/OpenCV pipeline: each frame's colour is sampled, and a spot of average colour is produced from the combination of one second's frames.
+Films are processed through [a Python/OpenCV pipeline](https://github.com/andywillis/spotmaps-pipeline/): each frame's colour is sampled, and a spot of average colour is produced from the combination of one second's frames.
 
 Spots are laid out 60 per line to represent one minute of film time. The length of the image represents the number of minutes in the film.
 
@@ -31,6 +31,8 @@ Coverage of the original project:
 ## Visit
 
 [https://spotmaps.onrender.com/](https://spotmaps.onrender.com/).
+
+Note: this is free dyno hosted on [render.com](https://render.com/) and take a while to warm up.
 
 ## Local development installation
 
