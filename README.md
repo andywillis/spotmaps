@@ -32,7 +32,7 @@ Coverage of the original project:
 
 [https://spotmaps.onrender.com/](https://spotmaps.onrender.com/).
 
-Note: this is free dyno hosted on [render.com](https://render.com/) and take a while to warm up.
+Note: this is free dyno hosted on [render.com](https://render.com/) and it takes a while to warm up.
 
 ## Local development installation
 
