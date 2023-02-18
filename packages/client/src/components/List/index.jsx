@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { typeSelector } from '../../store/selectors';
 
-import styles from './index.module.css';
+import style from './index.module.css';
 
 /**
  * formatItems
@@ -16,8 +16,8 @@ function formatItems(type, typeList) {
   return typeList.map((value) => {
     const link = `/${type}/${value}`;
     return (
-      <Link key={value} className={styles.wrapper} to={link}>
-        <div className={styles.link}>
+      <Link key={value} className={style.wrapper} to={link}>
+        <div className={style.link}>
           {value}
         </div>
       </Link>
@@ -38,7 +38,7 @@ function List({ type }) {
   console.log(typeList);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={style.wrapper}>
       {formatItems(type, typeList)}
     </div>
   );

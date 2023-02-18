@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 import { pageAtom } from '../../../store/atoms';
 
-import styles from './index.module.css';
+import style from './index.module.css';
 
 /**
  * PageNumber
@@ -16,9 +16,9 @@ function PageNumber({ number, disabled }) {
   const page = useRecoilValue(pageAtom);
 
   const classes = classnames([
-    styles.pageNumber,
-    page === number && styles.selected,
-    disabled && styles.disabled
+    style.pageNumber,
+    page === number && style.selected,
+    disabled && style.disabled
   ]);
 
   return (

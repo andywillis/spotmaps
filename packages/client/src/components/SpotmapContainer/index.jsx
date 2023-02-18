@@ -6,7 +6,7 @@ import SpotmapCanvas from '../SpotmapCanvas';
 
 import { mainWidthAtom } from '../../store/atoms';
 
-import styles from './index.module.css';
+import style from './index.module.css';
 
 /**
  * SpotmapContainer
@@ -24,7 +24,7 @@ function SpotmapContainer(props) {
 
   return (
     <section
-      className={styles.spotmapContainer}
+      className={style.spotmapContainer}
       style={{ width: mainWidth }}
     >
       <Details

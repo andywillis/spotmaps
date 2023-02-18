@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 
-import styles from './index.module.css';
+import style from './index.module.css';
 
 /**
  * SpotmapCanvas
@@ -57,7 +57,7 @@ function SpotmapCanvas(props) {
   }, [ numberOfSpots, hexData, spotSize ]);
 
   return (
-    <canvas className={styles.spotmap} ref={canvasRef} />
+    <canvas className={style.spotmap} ref={canvasRef} />
   );
 
 }
