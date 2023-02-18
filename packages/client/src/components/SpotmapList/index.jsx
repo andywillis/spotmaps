@@ -22,7 +22,7 @@ import {
 import { spotmapsSelector } from '../../store/selectors';
 import { spotmapsDataQuery } from '../../store/queries';
 
-import styles from './index.module.css';
+import style from './index.module.css';
 
 /**
  * SpotmapList
@@ -57,10 +57,10 @@ function SpotmapList() {
   }, [ filteredData, setPage, setNumberOfPages ]);
 
   const spotmapContainerStyle = classNames({
-    [styles.spotmapList]: true,
-    [styles.visible]: mainWidth > 0,
-    [styles.fadeOutContainer]: state === 'loading' && mainWidth > 0,
-    [styles.fadeInContainer]: state === 'hasValue' && mainWidth > 0
+    [style.spotmapList]: true,
+    [style.visible]: mainWidth > 0,
+    [style.fadeOutContainer]: state === 'loading' && mainWidth > 0,
+    [style.fadeInContainer]: state === 'hasValue' && mainWidth > 0
   });
 
   return (

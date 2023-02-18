@@ -1,9 +1,14 @@
 import { useEffect } from 'preact/hooks';
 import { useSetRecoilState } from 'recoil';
+import { Routes, Route } from 'react-router-dom';
 
-import Footer from './components/Footer';
-import Main from './components/Main';
-import Header from './components/Header';
+import About from './pages/About';
+import Director from './pages/Director';
+import Genre from './pages/Genre';
+import Home from './pages/Home';
+import Title from './pages/Title';
+import Writer from './pages/Writer';
+import Year from './pages/Year';
 
 import {
   libraryAtom,
@@ -34,12 +39,18 @@ function App() {
   }, [ setLibrary, setFilteredLibrary, setNumberOfPages ]);
 
   return (
-    <>
-      <Header />
-      <Main />
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/:type/:value" element={<Home />} />
+      <Route path="/director" element={<Director />} />
+      <Route path="/genre" element={<Genre />} />
+      <Route path="/title" element={<Title />} />
+      <Route path="/writer" element={<Writer />} />
+      <Route path="/year" element={<Year />} />
+      <Route path="/about" element={<About />} />
+    </Routes>
   );
+
 }
 
 export default App;

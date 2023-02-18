@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks';
 import classnames from 'classnames';
 import { useParams } from 'react-router-dom';
 
-import styles from './index.module.css';
+import style from './index.module.css';
 
 /**
  * Details
@@ -93,46 +93,46 @@ function Details({ data, canvasRef }) {
   }
 
   const downloadAseButtonStyle = classnames({
-    [styles.downloadButton]: true,
-    [styles.disabled]: isDownloading.ase && 'disabled'
+    [style.downloadButton]: true,
+    [style.disabled]: isDownloading.ase && 'disabled'
   });
 
   const downloadPngButtonStyle = classnames({
-    [styles.downloadButton]: true,
-    [styles.disabled]: isDownloading.png && 'disabled'
+    [style.downloadButton]: true,
+    [style.disabled]: isDownloading.png && 'disabled'
   });
 
   const downloadJpgButtonStyle = classnames({
-    [styles.downloadButton]: true,
-    [styles.disabled]: isDownloading.jpg && 'disabled'
+    [style.downloadButton]: true,
+    [style.disabled]: isDownloading.jpg && 'disabled'
   });
 
   return (
-    <div className={styles.details}>
+    <div className={style.details}>
       <div>
-        <div className={styles.label}>No.</div>
-        <div className={styles.detail}>{id}</div>
+        <div className={style.label}>No.</div>
+        <div className={style.detail}>{id}</div>
       </div>
       <div>
-        <div className={styles.label}>Title</div>
-        <div className={styles.detail}>
+        <div className={style.label}>Title</div>
+        <div className={style.detail}>
           <span
             className={classnames({
-              [styles.type]: true,
-              [styles.highlight]: type === 'title' && value === title
+              [style.type]: true,
+              [style.highlight]: type === 'title' && value === title
             })}
           >{title}
           </span>
         </div>
       </div>
       <div>
-        <div className={styles.label}>Director</div>
-        <div className={styles.detail}>
+        <div className={style.label}>Director</div>
+        <div className={style.detail}>
           {director.map(el => {
 
             const spanStyle = classnames({
-              [styles.type]: true,
-              [styles.highlight]: type === 'director' && value === el
+              [style.type]: true,
+              [style.highlight]: type === 'director' && value === el
             });
 
             const [ last, first ] = el.split(',');
@@ -147,13 +147,13 @@ function Details({ data, canvasRef }) {
         </div>
       </div>
       <div>
-        <div className={styles.label}>Writer</div>
-        <div className={styles.detail}>
+        <div className={style.label}>Writer</div>
+        <div className={style.detail}>
           {writer.map(el => {
 
             const spanStyle = classnames({
-              [styles.type]: true,
-              [styles.highlight]: type === 'writer' && value === el
+              [style.type]: true,
+              [style.highlight]: type === 'writer' && value === el
             });
 
             const [ last, first ] = el.split(',');
@@ -168,25 +168,25 @@ function Details({ data, canvasRef }) {
         </div>
       </div>
       <div>
-        <div className={styles.label}>Year</div>
-        <div className={styles.detail}>
+        <div className={style.label}>Year</div>
+        <div className={style.detail}>
           <span
             className={classnames({
-              [styles.type]: true,
-              [styles.highlight]: type === 'year' && +value === year
+              [style.type]: true,
+              [style.highlight]: type === 'year' && +value === year
             })}
           >{year}
           </span>
         </div>
       </div>
       <div>
-        <div className={styles.label}>Genre</div>
-        <div className={styles.detail}>
+        <div className={style.label}>Genre</div>
+        <div className={style.detail}>
           {genre.map(el => {
 
             const spanStyle = classnames({
-              [styles.type]: true,
-              [styles.highlight]: type === 'genre' && value === el
+              [style.type]: true,
+              [style.highlight]: type === 'genre' && value === el
             });
 
             return (
@@ -199,9 +199,9 @@ function Details({ data, canvasRef }) {
         </div>
       </div>
       <div>
-        <div className={styles.label}>Download</div>
-        <div className={styles.detail}>
-          <div className={styles.download}>
+        <div className={style.label}>Download</div>
+        <div className={style.detail}>
+          <div className={style.download}>
             <button
               className={downloadAseButtonStyle}
               type="button"

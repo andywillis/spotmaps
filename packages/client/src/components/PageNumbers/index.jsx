@@ -5,7 +5,7 @@ import Directional from './Directional';
 
 import { pageAtom, numberOfPagesAtom } from '../../store/atoms';
 
-import styles from './index.module.css';
+import style from './index.module.css';
 
 /**
  * buildPageList
@@ -94,7 +94,7 @@ function PageNumbers() {
   }
 
   return (
-    <nav role="presentation" className={styles.pageNumbers} onClick={handleClick}>
+    <nav role="presentation" className={style.pageNumbers} onClick={handleClick}>
       <Directional type="rwd" />
       <Directional type="previous" />
       {numberOfPages > 1

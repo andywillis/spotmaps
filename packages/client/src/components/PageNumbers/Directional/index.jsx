@@ -1,6 +1,6 @@
 import { useRecoilValue } from 'recoil';
 import classnames from 'classnames';
-import styles from './index.module.css';
+import style from './index.module.css';
 
 import { pageAtom, numberOfPagesAtom } from '../../../store/atoms';
 
@@ -34,10 +34,10 @@ function Directional({ type }) {
   );
 
   const classes = classnames({
-    [styles.directional]: true,
-    [styles.previous]: type === 'previous',
-    [styles.next]: type === 'next',
-    [styles.disabled]: disabledStyle
+    [style.directional]: true,
+    [style.previous]: type === 'previous',
+    [style.next]: type === 'next',
+    [style.disabled]: disabledStyle
   });
 
   function getType(directionType) {
