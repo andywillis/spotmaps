@@ -2,6 +2,7 @@
   "name": "spotmaps-react",
   "private": true,
   "version": "2.1.0",
+  "license": "CC-BY-SA-4.0",
   "engines": {
     "node": "^18"
   },

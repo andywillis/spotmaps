@@ -33,6 +33,7 @@ function useHasWindowResized() {
 
     // Remove event listener on cleanup
     return () => window.removeEventListener('resize', handleResize);
+
   }, [ windowSize.width, windowSize.height ]);
 
   return windowSize;
