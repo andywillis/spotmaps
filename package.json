@@ -1,5 +1,5 @@
 {
-  "name": "spotmaps-react",
+  "name": "spotmaps",
   "private": true,
   "version": "2.1.0",
   "license": "CC-BY-SA-4.0",
@@ -15,8 +15,10 @@
     "heroku-postbuild": "pnpm run build",
     "test": "vitest",
     "lint": "eslint",
+    "cspell": "cspell --no-progress -e node_modules \"**/*.{js,jsx,md,css}\"",
     "coverage": "vitest run --coverage",
-    "snyk": "snyk test --all-projects"
+    "snyk": "snyk test --all-projects",
+    "scratch": "node --experimental-specifier-resolution=node lib/scratchpad.js"
   },
   "dependencies": {
     "concurrently": "^8.0.1"
