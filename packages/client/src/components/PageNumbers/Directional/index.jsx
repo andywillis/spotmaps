@@ -25,8 +25,8 @@ function isDisabled(type, page, numberOfPages) {
 function Directional({ type }) {
 
   const disabledStyle = (
-    ((type === 'rwd' || type === 'previous') && page === 1)
-    || ((type === 'ffd' || type === 'next') && page === numberOfPages)
+    ((type === 'rwd' || type === 'previous') && page.value === 1)
+    || ((type === 'ffd' || type === 'next') && page.value === numberOfPages)
   );
 
   const classes = classnames({

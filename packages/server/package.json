@@ -22,8 +22,12 @@
     "rgb2ase": "^0.0.4"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "babel-plugin-import": "^1.13.6",
     "nodemon": "^2.0.22",
+=======
+    "nodemon": "^2.0.19",
+>>>>>>> e37145d303ac8a2fd5e94a2cc1525bda1e5b98a1
     "quantize": "^1.0.2"
   },
   "license": "CC-BY-NC-SA-4.0"

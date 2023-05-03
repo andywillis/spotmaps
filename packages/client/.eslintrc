@@ -1,8 +1,6 @@
 {
   "extends": [
-    "airbnb",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended"
+    "../../.eslintrc"
   ],
   "env": {
     "browser": true

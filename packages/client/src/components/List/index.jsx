@@ -11,8 +11,8 @@ import styles from './index.module.css';
  * @param {array} typeList
  * @return {object} JSX
  */
-function formatItems(type, typeList) {
-  return typeList.map((value) => {
+function formatItems(type, typeSelector) {
+  return typeSelector.map((value) => {
     const link = `/${type}/${value}`;
     return (
       <Link key={value} className={styles.wrapper} to={link}>
