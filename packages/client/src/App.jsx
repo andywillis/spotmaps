@@ -1,15 +1,15 @@
 import { useEffect } from 'preact/hooks';
-import { useSetRecoilState } from 'recoil';
 
+import BaseLayout from './layouts/BaseLayout';
 import Footer from './components/Footer';
 import Main from './components/Main';
 import Header from './components/Header';
 
 import {
-  libraryAtom,
-  filteredLibraryAtom,
-  numberOfPagesAtom
-} from './store/atoms';
+  library,
+  // filteredLibrary,
+  numberOfPages
+} from './store/signals';
 
 /**
  * App
@@ -18,27 +18,23 @@ import {
  */
 function App() {
 
-  const setLibrary = useSetRecoilState(libraryAtom);
-  const setFilteredLibrary = useSetRecoilState(filteredLibraryAtom);
-  const setNumberOfPages = useSetRecoilState(numberOfPagesAtom);
-
   useEffect(() => {
     async function getData() {
       const response = await fetch('/library');
-      const library = await response.json();
-      setLibrary(library);
-      setFilteredLibrary(library);
-      setNumberOfPages(library.length);
+      const data = await response.json();
+      library.value = data;
+      // filteredLibrary([...library]);
+      numberOfPages(library.value.length);
     }
     getData();
-  }, [ setLibrary, setFilteredLibrary, setNumberOfPages ]);
+  }, []);
 
   return (
-    <>
+    <BaseLayout>
       <Header />
       <Main />
       <Footer />
-    </>
+    </BaseLayout>
   );
 }
 

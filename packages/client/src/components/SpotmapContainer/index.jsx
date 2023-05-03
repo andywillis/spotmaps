@@ -1,10 +1,9 @@
 import { useRef } from 'preact/hooks';
-import { useRecoilValue } from 'recoil';
 
 import Details from '../Details';
 import SpotmapCanvas from '../SpotmapCanvas';
 
-import { mainWidthAtom } from '../../store/atoms';
+import { mainWidth } from '../../store/signals';
 
 import styles from './index.module.css';
 
@@ -20,20 +19,18 @@ function SpotmapContainer(props) {
 
   const canvasRef = useRef(null);
 
-  const mainWidth = useRecoilValue(mainWidthAtom);
-
   return (
     <section
       className={styles.spotmapContainer}
-      style={{ width: mainWidth }}
+      style={{ width: mainWidth.value }}
     >
       <Details
         canvasRef={canvasRef}
-        mainWidth={mainWidth}
+        mainWidth={mainWidth.value}
         data={details}
       />
       <SpotmapCanvas
-        mainWidth={mainWidth}
+        mainWidth={mainWidth.value}
         numberOfSpots={numberOfSpots}
         hexData={hexData}
         canvasRef={canvasRef}

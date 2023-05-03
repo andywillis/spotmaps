@@ -1,7 +1,6 @@
-import { useRecoilValue } from 'recoil';
 import { Link } from 'react-router-dom';
 
-import { typeSelector } from '../../store/selectors';
+import { listType, getListByType } from '../../store/signals';
 
 import styles from './index.module.css';
 
@@ -33,11 +32,11 @@ function formatItems(type, typeList) {
  */
 function List({ type }) {
 
-  const typeList = useRecoilValue(typeSelector(type));
+  listType.value = type;
 
   return (
     <div className={styles.wrapper}>
-      {formatItems(type, typeList)}
+      {formatItems(listType.value, getListByType.value)}
     </div>
   );
 

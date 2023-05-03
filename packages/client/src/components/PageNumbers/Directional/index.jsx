@@ -1,8 +1,7 @@
-import { useRecoilValue } from 'recoil';
 import classnames from 'classnames';
 import styles from './index.module.css';
 
-import { pageAtom, numberOfPagesAtom } from '../../../store/atoms';
+import { page, numberOfPages } from '../../../store/signals';
 
 /**
  * isDisabled
@@ -24,9 +23,6 @@ function isDisabled(type, page, numberOfPages) {
  * @return {object} JSX
  */
 function Directional({ type }) {
-
-  const page = useRecoilValue(pageAtom);
-  const numberOfPages = useRecoilValue(numberOfPagesAtom);
 
   const disabledStyle = (
     ((type === 'rwd' || type === 'previous') && page === 1)
@@ -55,7 +51,7 @@ function Directional({ type }) {
       className={classes}
       type="directional"
       data-id={type}
-      data-disabled={isDisabled(type, page, numberOfPages)}
+      data-disabled={isDisabled(type, page.value, numberOfPages.value)}
     >{getType(type)}
     </div>
   );
